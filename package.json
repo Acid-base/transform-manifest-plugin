@@ -10,7 +10,11 @@
     "type": "git",
     "url": "git+https://github.com/Acid-base/transform-manifest-plugin.git"
   },
-  "keywords": [],
+  "keywords": [
+    "json merge",
+    "manifest merge",
+    "manifest transform"
+  ],
   "author": "Vladimir Varavva",
   "license": "ISC",
   "bugs": {
