@@ -1,0 +1,23 @@
+{
+  "name": "transform-manifest-plugin",
+  "version": "0.0.1",
+  "description": "This plugin is used to merge and transform json files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Acid-base/transform-manifest-plugin.git"
+  },
+  "keywords": [],
+  "author": "Vladimir Varavva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Acid-base/transform-manifest-plugin/issues"
+  },
+  "homepage": "https://github.com/Acid-base/transform-manifest-plugin#readme",
+  "peerDependencies": {
+    "webpack": "4"
+  }
+}
