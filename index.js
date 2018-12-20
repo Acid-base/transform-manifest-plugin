@@ -18,17 +18,32 @@ class TransformManifestPlugin {
 
     getFiles() {
         this.manifest = {
-            with: this.options.input.withTransform.map(item => {
-                return {
-                    file: require(item.file),
-                    path: item.path
-                };
-            }),
-            without: this.options.input.withoutTransform.map(path => require(path))
+            with: this.options.input.withTransform || [],
+            without: this.options.input.withoutTransform || []
         };
+
+        if (!this.manifest.with.length && !this.manifest.without.length) {
+            throw new Error('files not found');
+        }
+
+        this.manifest.with = this.manifest.with.map(item => {
+            if (!item) return;
+
+            return {
+                file: require(item.file),
+                path: item.path || ''
+            };
+        });
+
+        this.manifest.without = this.manifest.without.map(file => {
+            if (!file) return;
+            return require(file);
+        });
     }
 
     transform() {
+        if (!this.manifest.with || !this.manifest.with.length) return;
+
         this.manifest.with.forEach(item => {
             Object.keys(item.file).forEach(key => {
                 item.file[key] = `${item.path}${item.file[key]}`;
