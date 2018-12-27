@@ -31,7 +31,8 @@ class TransformManifestPlugin {
 
             return {
                 file: require(item.file),
-                path: item.path || ''
+                path: item.path || '',
+                transform: item.transform
             };
         });
 
@@ -42,12 +43,14 @@ class TransformManifestPlugin {
     }
 
     transform() {
-        if (!this.manifest.with || !this.manifest.with.length) return;
-
         this.manifest.with.forEach(item => {
             Object.keys(item.file).forEach(key => {
                 item.file[key] = `${item.path}${item.file[key]}`;
             });
+        });
+
+        this.manifest.with.forEach(item => {
+            item.transform(item.file);
         });
 
         this.manifest.with = this.manifest.with.map(item => item.file);
