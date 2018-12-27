@@ -1,6 +1,6 @@
 {
   "name": "transform-manifest-plugin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This plugin is used to merge and transform json files",
   "main": "index.js",
   "scripts": {
