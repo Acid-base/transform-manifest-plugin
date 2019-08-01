@@ -1,5 +1,3 @@
-# NOT READY!
-
 # Transform Manifest Plugin
 
 Webpack plugin for merge and transform json files.
